@@ -1,0 +1,16 @@
+name: tmate
+on:
+  workflow_dispatch:
+    inputs:
+      os:
+        description: 'Operating System'
+        required: true
+        default: 'ubuntu-latest'
+jobs:
+  tmate:
+    runs-on: ${{ github.event.inputs.os }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: mxschmitt/action-tmate@v3
+        with:
+          limit-access-to-actor: true
