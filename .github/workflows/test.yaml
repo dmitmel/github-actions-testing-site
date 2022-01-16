@@ -1,0 +1,13 @@
+name: test
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          'C:/msys64/usr/bin/bash.exe' wget --help
