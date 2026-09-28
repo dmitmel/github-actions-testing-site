@@ -1,0 +1,16 @@
+name: upterm
+on:
+  workflow_dispatch:
+    inputs:
+      os:
+        description: 'Operating System'
+        required: true
+        default: 'ubuntu-latest'
+jobs:
+  upterm:
+    runs-on: ${{ github.event.inputs.os }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: owenthereal/action-upterm@v2
+        with:
+          limit-access-to-actor: true
